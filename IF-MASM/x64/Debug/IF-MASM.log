@@ -1,0 +1,3 @@
+﻿  main.c
+D:\Projects\PattayaEvasion\MASM-Play\IF-MASM\main.c(5,10): warning C4013: 'rand' undefined; assuming extern returning int
+  IF-MASM.vcxproj -> D:\Projects\PattayaEvasion\MASM-Play\x64\Debug\IF-MASM.exe

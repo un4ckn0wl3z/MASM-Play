@@ -1,0 +1,19 @@
+.data
+
+.code
+
+SimpleAsmFunc PROC
+
+    push 3			; rsp - 8
+    push 2			; rsp - 8
+    push 1			; rsp - 8
+
+    mov eax, [rsp]		; eax = 1
+    mov ebx, [rsp + 8]		; ebx = 2
+    mov ecx, [rsp + 16]		; ecx = 3
+
+    add rsp, 24			; pop x3
+
+    ret
+
+SimpleAsmFunc ENDP
