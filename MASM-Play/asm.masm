@@ -1,0 +1,87 @@
+; Data section: contains variable and memory values, adding this section is optional 
+; Variables can be declared below the ".data" directive
+.data
+
+WordVariable      word         2
+sWordVariable     sword       -2
+FloatVariable     real8       3.1
+StringVar1  byte 'This is a string', 0     ; we add "0" to null-terminate the string 
+StringVar2 byte 'This is a string with a new line', 10, 0        ; "10" represents the new line character and is equal to 16 in decimal format
+StringVar byte 'String Variable', 0       ; A dummy string variable 
+
+
+; Code section: contains the assembly code/functions
+; Assembly functions can be declared below the ".code" directive
+.code
+
+
+; MASM function declaration
+TestProc PROC ; Start of function "main"
+     
+      ; Assembly code of "TestProc"
+
+      mov rax, 1234     ; move the value 1234 into the RAX register
+      mov rax, rbx      ; move the value in the RBX register into the RAX register
+
+      mov al, 5h        ; move the value 0x05 into the AL register
+      mov [ebx], al     ; move the value in AL to the memory location pointed to by the EBX register
+
+      add rax, rbx                     ; add the value in RBX to the value in RAX and store the result in RAX
+      add rax, [rcx]                   ; add the value in the memory location at RCX to the value in RAX and store the result in RAX
+      ; add [rax], 10                    ; add the value 10 to the memory location at RAX and store the result in that memory location
+
+      mov al, 12h       ; move the value 0x12 into the AL register
+      mov bl, 5h        ; move the value 0x05 into the BL register
+      sub al, bl        ; subtract the value in BL from the value in AL and store the result in AL. AL's value is now '13'
+      call DummpProc
+      
+      ret ; Return from "main"     
+TestProc ENDP ; End of function "TestProc"    
+
+
+DummpProc     PROC
+      mov rcx, 3        ; dummy code
+      add rbx, 2
+      sub esi, 1
+      lea rcx, StringVar                        ; Load the address of the StringVar variable into RCX. RCX is now equal to &StringVar[0]
+
+      ret               ; return execution back to "main"
+DummpProc     ENDP
+
+
+Ujmp PROC
+      add eax, 2              ; dummy code
+      xor ax, 5
+      mov bx, ax
+      jmp LabelName           ; Jump to execute 'LabelName' 
+      mov eax, 100            ; These instructions won't get executed
+      mov ebx, 100
+LabelName:
+      xor eax, eax            ; LabelName's code
+      sub ebx, 2      
+      ret
+Ujmp ENDP
+
+
+
+Bitwise PROC
+
+      mov ax, 11FFh
+      and ax, 010Fh     ; The AX register is now equal to 0x010F  
+
+      mov bx, 0011h
+      or  bx, 1010h     ; The BX register is now equal to 0x1011 
+
+      mov cx, 1101h
+      xor cx, 1111h     ; The CX register is now equal to 0x0010 
+
+      mov eax, FFh
+      xor eax, eax      ; The EAX register is now equal to 0x00 - This is faster than 'mov eax, 0'
+
+      mov ax, 1100h
+      not ax            ; The AX register is not equal to 0xEEFF 
+Bitwise ENDP
+
+
+; The "end" directive marks the end of the source file
+end
