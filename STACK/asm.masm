@@ -12,7 +12,19 @@ SimpleAsmFunc PROC
     mov ebx, [rsp + 8]		; ebx = 2
     mov ecx, [rsp + 16]		; ecx = 3
 
+    mov rax, qword ptr [rbx]         ; Example 1
+    mov rax, qword ptr [rsp + 32h]   ; Example 2
+
+
+    mov dword ptr [ebx], 12345678	; Example 1: stores a 32-bit integer value in memory
+    mov eax, dword ptr [edx + 4]	; Example 2: loads a 32-bit integer value from memory into the eax register
+
+    mov al, byte ptr [edx + 2]	; Example 1	
+    mov byte ptr [ebx + 8], 55h	; Example 2	
+
+
     add rsp, 24			; pop x3
+
 
     ret
 

@@ -1,0 +1,18 @@
+; The asm file that includes the definition of 'SimpleAsmFunc'
+
+.code
+
+; The asm file that calls 'SimpleCFunc'
+
+externdef SimpleCFunc:proc 	; Using externdef to declare "SimpleCFunc" as a procedure defined in an other fi
+
+
+SimpleAsmFunc PROC
+      xor rcx, rcx      ; SimpleAsmFunc's code
+      add rcx, 2
+      call SimpleCFunc		; Calling SimpleCFunc
+      mov rax, 1337
+      ret
+SimpleAsmFunc ENDP
+
+end
