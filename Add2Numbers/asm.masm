@@ -1,0 +1,47 @@
+.data
+
+
+
+; The following string is used in "AsmHelloWorld"
+
+HelloStr    byte    'Hello World !', 10, 0
+
+
+externdef printf:PROC                               ; Declaring an external value as a procedure (printf in C) - used in "AsmCallFunction" & "AsmHelloWorld"
+
+
+.code
+
+
+;
+;   A function that demonstrate returning values
+;
+AddtwoNumbers PROC
+    mov rax, rcx    ; Moving the 1st parmeter to RAX
+    add rax, rdx    ; Add the 2nd parmeter to the value in RAX
+    ret             ; Return (RAX here is RCX + RDX)
+AddtwoNumbers ENDP
+
+
+;
+;   A function that calls printf to print "Hello World!"
+;
+AsmHelloWorld PROC
+
+    push rbp                     ; Setting up AsmCallFunction's shadow space
+    mov rbp, rsp
+    sub rsp, 40                  ; 32 bytes (4 parameters) + 8 byte (return address of printf)    
+
+    lea rcx, HelloStr            ; Calling printf    
+    call printf
+
+    mov rsp, rbp                 ; Can be "leave"
+    pop rbp
+    ret
+
+AsmHelloWorld ENDP
+
+
+
+
+end

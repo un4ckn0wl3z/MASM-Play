@@ -1,0 +1,40 @@
+.data
+
+String1     byte    '[i] AsmCallFunction => This is a string: "%s" | This is a dword: %d | This is a word: %d | This is a byte: 0x%0.2X', 10, 0          
+String2     byte    'Hello World!', 0
+DwordVar    dword   213483
+WordVar     word    23
+ByteVar     byte    10
+
+externdef printf:PROC		    ; Declaring an external value as a procedure (printf in C) 
+
+.code
+
+AsmCallFunction PROC
+
+    push rbp                        ; Setting up AsmCallFunction's shadow space
+    mov rbp, rsp
+    sub rsp, 48                     ; 32 bytes (4 parameters) + 8 bytes (5th parameter) + 8 byte (return address of printf)
+    
+    lea rcx, String1                ; 1st parameter 
+    lea rdx, String2                ; 2nd parameter
+    
+    xor r8, r8                      ; 3rd parameter
+    mov r8d, DwordVar   
+    
+    xor r9, r9                      ; 4th parameter
+    mov r9w, WordVar    
+    
+    xor rax, rax                    ; 5th parameter   
+    mov ah, ByteVar      
+    mov byte ptr [rsp + 32], ah     ; '32' represents the size of the stack reserved for the register parameters of "AsmCallFunction". Thus a 5th parameter will start at this offset from RSP
+
+    call printf                     ; Calling printf
+
+    leave                           ; "mov rsp, rbp" & "pop rbp"
+    ret
+
+
+AsmCallFunction ENDP
+
+end

@@ -1,0 +1,14 @@
+﻿  Assembling asm.masm...
+  PASSINGPARAMS.c
+D:\Projects\PattayaEvasion\MASM-Play\PASSINGPARAMS\PASSINGPARAMS.c(6,17): warning C4022: 'AsmFunc11Parms': pointer mismatch for actual parameter 1
+D:\Projects\PattayaEvasion\MASM-Play\PASSINGPARAMS\PASSINGPARAMS.c(6,20): warning C4022: 'AsmFunc11Parms': pointer mismatch for actual parameter 2
+D:\Projects\PattayaEvasion\MASM-Play\PASSINGPARAMS\PASSINGPARAMS.c(6,23): warning C4022: 'AsmFunc11Parms': pointer mismatch for actual parameter 3
+D:\Projects\PattayaEvasion\MASM-Play\PASSINGPARAMS\PASSINGPARAMS.c(6,26): warning C4022: 'AsmFunc11Parms': pointer mismatch for actual parameter 4
+D:\Projects\PattayaEvasion\MASM-Play\PASSINGPARAMS\PASSINGPARAMS.c(6,29): warning C4022: 'AsmFunc11Parms': pointer mismatch for actual parameter 5
+D:\Projects\PattayaEvasion\MASM-Play\PASSINGPARAMS\PASSINGPARAMS.c(6,32): warning C4022: 'AsmFunc11Parms': pointer mismatch for actual parameter 6
+D:\Projects\PattayaEvasion\MASM-Play\PASSINGPARAMS\PASSINGPARAMS.c(6,35): warning C4022: 'AsmFunc11Parms': pointer mismatch for actual parameter 7
+D:\Projects\PattayaEvasion\MASM-Play\PASSINGPARAMS\PASSINGPARAMS.c(6,38): warning C4022: 'AsmFunc11Parms': pointer mismatch for actual parameter 8
+D:\Projects\PattayaEvasion\MASM-Play\PASSINGPARAMS\PASSINGPARAMS.c(6,41): warning C4022: 'AsmFunc11Parms': pointer mismatch for actual parameter 9
+D:\Projects\PattayaEvasion\MASM-Play\PASSINGPARAMS\PASSINGPARAMS.c(6,44): warning C4022: 'AsmFunc11Parms': pointer mismatch for actual parameter 10
+D:\Projects\PattayaEvasion\MASM-Play\PASSINGPARAMS\PASSINGPARAMS.c(6,48): warning C4022: 'AsmFunc11Parms': pointer mismatch for actual parameter 11
+  PASSINGPARAMS.vcxproj -> D:\Projects\PattayaEvasion\MASM-Play\x64\Debug\PASSINGPARAMS.exe

@@ -1,0 +1,31 @@
+.data
+
+.code
+
+AsmFunc11Parms PROC
+
+    ; RCX => Parm1
+    ; RDX => Parm2
+    ; R8  => Parm3
+    ; R9  => Parm4
+
+    mov rax, qword ptr [rsp + 40]  ; Parm5
+    mov rax, qword ptr [rsp + 48]  ; Parm6
+    mov rax, qword ptr [rsp + 56]  ; Parm7
+    mov rax, qword ptr [rsp + 64]  ; Parm8
+    mov rax, qword ptr [rsp + 72]  ; Parm9
+    mov rax, qword ptr [rsp + 80]  ; Parm10
+    mov rax, qword ptr [rsp + 88]  ; Parm11
+
+    ret
+
+AsmFunc11Parms ENDP
+
+
+AddtwoNumbers PROC
+    mov rax, rcx    ; Moving the 1st parmeter to RAX  
+    add rax, rdx    ; Add the 2nd parmeter to the value in RAX
+    ret             ; return (RAX here is RCX + RDX)
+AddtwoNumbers ENDP
+
+end
